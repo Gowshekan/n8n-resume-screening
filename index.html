@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Registration</title>
+
+    <style>
+        body{
+            font-family:Arial;
+            background:#f2f2f2;
+        }
+
+        .container{
+            width:400px;
+            margin:50px auto;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px gray;
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            margin-top:10px;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            margin-top:20px;
+            background:#4CAF50;
+            color:white;
+            border:none;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#388E3C;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Customer Registration</h2>
+
+<form id="customerForm">
+
+<input type="text"
+id="name"
+placeholder="Name"
+required>
+
+<input type="email"
+id="email"
+placeholder="Email"
+required>
+
+<input type="text"
+id="phone"
+placeholder="Phone"
+required>
+
+<input type="text"
+id="company"
+placeholder="Company"
+required>
+
+<button type="submit">
+Submit
+</button>
+
+</form>
+
+</div>
+
+<script>
+
+document.getElementById("customerForm")
+.addEventListener("submit",async function(e){
+
+e.preventDefault();
+
+const data={
+name:document.getElementById("name").value,
+email:document.getElementById("email").value,
+phone:document.getElementById("phone").value,
+company:document.getElementById("company").value
+};
+
+const webhook="PASTE_YOUR_WEBHOOK_URL_HERE";
+
+await fetch(webhook,{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify(data)
+});
+
+alert("Registration Successful!");
+
+});
+
+</script>
+
+</body>
+</html> 
