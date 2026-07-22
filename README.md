@@ -179,15 +179,7 @@ This project demonstrates:
 
 ---
 
-## Author
 
-**Gowshekan A.V.R**
-
-Computer Science Engineering Student
-
-LinkedIn: *(Add your LinkedIn URL)*
-
-GitHub: *(Add your GitHub URL)*
 
 ---
 
