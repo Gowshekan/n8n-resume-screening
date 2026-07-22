@@ -1,110 +1,150 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Customer Registration</title>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Resume Screening System</title>
+    <meta
+      name="description"
+      content="Professional AI Resume Screening application portal for candidates to submit their profiles."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero" aria-label="Company introduction">
+        <span class="hero-badge">AI Hiring Platform</span>
+        <h1>AI Resume Screening System</h1>
+        <p>Submit your resume and let our AI evaluate your profile.</p>
+      </header>
 
-    <style>
-        body{
-            font-family:Arial;
-            background:#f2f2f2;
-        }
+      <main class="application-card" role="main" aria-labelledby="form-title">
+        <div class="card-header">
+          <div class="icon-box" aria-hidden="true">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+          </div>
+          <div>
+            <h2 id="form-title">Apply for a role</h2>
+            <p>Share your details securely and let us review your profile with care.</p>
+          </div>
+        </div>
 
-        .container{
-            width:400px;
-            margin:50px auto;
-            background:white;
-            padding:20px;
-            border-radius:10px;
-            box-shadow:0 0 10px gray;
-        }
+        <form id="resumeForm" novalidate>
+          <div class="form-grid">
+            <div class="field-group">
+              <label for="fullName">Full Name</label>
+              <input id="fullName" name="fullName" type="text" placeholder="Enter your full name" required />
+              <p class="error-message" id="fullNameError" role="alert"></p>
+            </div>
 
-        input{
-            width:100%;
-            padding:10px;
-            margin-top:10px;
-        }
+            <div class="field-group">
+              <label for="email">Email Address</label>
+              <input id="email" name="email" type="email" placeholder="name@example.com" required />
+              <p class="error-message" id="emailError" role="alert"></p>
+            </div>
 
-        button{
-            width:100%;
-            padding:12px;
-            margin-top:20px;
-            background:#4CAF50;
-            color:white;
-            border:none;
-            cursor:pointer;
-        }
+            <div class="field-group">
+              <label for="phone">Phone Number</label>
+              <input id="phone" name="phone" type="tel" placeholder="Enter 10-digit phone number" required />
+              <p class="error-message" id="phoneError" role="alert"></p>
+            </div>
 
-        button:hover{
-            background:#388E3C;
-        }
-    </style>
-</head>
+            <div class="field-group">
+              <label for="jobRole">Job Role</label>
+              <select id="jobRole" name="jobRole" required>
+                <option value="">Select a role</option>
+                <option>Java Developer</option>
+                <option>Python Developer</option>
+                <option>Full Stack Developer</option>
+                <option>Frontend Developer</option>
+                <option>Backend Developer</option>
+                <option>DevOps Engineer</option>
+                <option>Cloud Engineer</option>
+                <option>Data Analyst</option>
+                <option>Data Scientist</option>
+                <option>AI/ML Engineer</option>
+              </select>
+              <p class="error-message" id="jobRoleError" role="alert"></p>
+            </div>
 
-<body>
+            <div class="field-group">
+              <label for="experience">Years of Experience</label>
+              <input id="experience" name="experience" type="number" min="0" max="50" placeholder="e.g. 4" required />
+              <p class="error-message" id="experienceError" role="alert"></p>
+            </div>
 
-<div class="container">
+            <div class="field-group">
+              <label for="location">Current Location</label>
+              <input id="location" name="location" type="text" placeholder="City, Country" required />
+              <p class="error-message" id="locationError" role="alert"></p>
+            </div>
 
-<h2>Customer Registration</h2>
+            <div class="field-group">
+              <label for="qualification">Highest Qualification</label>
+              <input id="qualification" name="qualification" type="text" placeholder="e.g. Bachelor's in Computer Science" required />
+              <p class="error-message" id="qualificationError" role="alert"></p>
+            </div>
+          </div>
 
-<form id="customerForm">
+          <div class="field-group upload-group">
+            <label class="upload-label" for="resumeFile">
+              <span class="upload-icon" aria-hidden="true">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+              </span>
+              <span>
+                <strong>Upload Resume</strong>
+                <small>PDF files only</small>
+              </span>
+            </label>
+            <input id="resumeFile" name="resume" type="file" accept=".pdf,application/pdf" required />
+            <p class="file-name" id="fileName" aria-live="polite">No file selected</p>
+            <p class="error-message" id="resumeFileError" role="alert"></p>
+          </div>
 
-<input type="text"
-id="name"
-placeholder="Name"
-required>
+          <div class="field-group">
+            <label for="careerSummary">Career Summary</label>
+            <textarea id="careerSummary" name="careerSummary" rows="5" placeholder="Tell us briefly about yourself..." required></textarea>
+            <p class="error-message" id="careerSummaryError" role="alert"></p>
+          </div>
 
-<input type="email"
-id="email"
-placeholder="Email"
-required>
+          <div class="checkbox-group">
+            <input id="privacyPolicy" name="privacyPolicy" type="checkbox" />
+            <label for="privacyPolicy">I agree to the privacy policy.</label>
+            <p class="error-message" id="privacyPolicyError" role="alert"></p>
+          </div>
 
-<input type="text"
-id="phone"
-placeholder="Phone"
-required>
+          <button class="submit-btn" type="submit">
+            <span class="btn-text">Submit Application</span>
+            <span class="spinner" aria-hidden="true"></span>
+          </button>
+        </form>
+      </main>
+    </div>
 
-<input type="text"
-id="company"
-placeholder="Company"
-required>
+    <div class="modal" id="successModal" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+      <div class="modal-content">
+        <div class="modal-icon" aria-hidden="true">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <h3 id="successTitle">Application Submitted</h3>
+        <p>Your profile has been received successfully. Our team will review it shortly.</p>
+        <button id="closeModal" type="button">Close</button>
+      </div>
+    </div>
 
-<button type="submit">
-Submit
-</button>
-
-</form>
-
-</div>
-
-<script>
-
-document.getElementById("customerForm")
-.addEventListener("submit",async function(e){
-
-e.preventDefault();
-
-const data={
-name:document.getElementById("name").value,
-email:document.getElementById("email").value,
-phone:document.getElementById("phone").value,
-company:document.getElementById("company").value
-};
-
-const webhook="https://azid.app.n8n.cloud/webhook/customer-registration";
-
-await fetch(webhook,{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify(data)
-});
-
-alert("Registration Successful!");
-
-});
-
-</script>
-
-</body>
-</html> 
+    <script src="script.js"></script>
+  </body>
+</html>
+ 
